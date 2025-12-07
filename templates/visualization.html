@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ viz_name }} - {{ domain }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% if plot_data is defined %}
+        {% if plot_data is mapping and plot_data.script is defined %}
+        <!-- Bokeh Resources -->
+        {{ plot_data.script|safe }}
+        {% elif plot_data is string %}
+            {% set plot_str = plot_data.strip() %}
+            {% if plot_str.startswith('{') and plot_str.endswith('}') %}
+            <!-- Plotly Resources -->
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/" class="nav-link">Home</a>
+                <span class="nav-separator">/</span>
+                {% if domain == 'E-Commerce' %}
+                <a href="/ecommerce" class="nav-link">{{ domain }}</a>
+                {% elif domain == 'Health' %}
+                <a href="/health" class="nav-link">{{ domain }}</a>
+                {% elif domain == 'Education' %}
+                <a href="/education" class="nav-link">{{ domain }}</a>
+                {% elif domain == 'Finance' %}
+                <a href="/finance" class="nav-link">{{ domain }}</a>
+                {% elif domain == 'Interactive 3D Dataset' %}
+                <a href="/interactive-3d" class="nav-link">{{ domain }}</a>
+                {% elif domain == 'Student Study Success' %}
+                <a href="/student-study" class="nav-link">{{ domain }}</a>
+                {% elif domain == 'Home Loan Applicants' %}
+                <a href="/home-loans" class="nav-link">{{ domain }}</a>
+                {% elif domain == 'E-Commerce Sales' %}
+                <a href="/ecommerce-csv" class="nav-link">{{ domain }}</a>
+                {% elif domain == 'Health Clinic Data' %}
+                <a href="/health-clinic" class="nav-link">{{ domain }}</a>
+                {% else %}
+                <a href="/" class="nav-link">Home</a>
+                {% endif %}
+                <span class="nav-separator">/</span>
+                <span class="nav-current">{{ viz_name }}</span>
+            </nav>
+            <h1>{{ viz_name }}</h1>
+            <div class="viz-meta">
+                <span class="meta-badge domain-badge">{{ domain }}</span>
+                <span class="meta-badge library-badge">{{ library }}</span>
+                <span class="meta-badge type-badge">{{ viz_type }}</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="lesson-section">
+                <h2>📖 Lesson: Understanding This Visualization</h2>
+                <div class="lesson-content">
+                    <div class="lesson-box">
+                        <h3>What is this visualization?</h3>
+                        <p>{{ description }}</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>Why is this important?</h3>
+                        <p>{{ lesson }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-section">
+                <h2>📊 Visualization</h2>
+                <div class="plot-container">
+                    {% if plot_data is defined %}
+                        {% if plot_data is mapping and plot_data.script is defined %}
+                        <!-- Bokeh Plot -->
+                        <div style="width: 100%; overflow: auto;">
+                            {{ plot_data.div|safe }}
+                        </div>
+                        {% elif plot_data is string %}
+                            {% set plot_str = plot_data.strip() %}
+                            {% if plot_str.startswith('{') and plot_str.endswith('}') and ('"data"' in plot_str or '"layout"' in plot_str) %}
+                            <!-- Plotly Plot -->
+                            <div id="plotly-chart" style="width: 100%; min-height: 600px; height: 700px;"></div>
+                            <script>
+                                function renderPlotlyChart() {
+                                    try {
+                                        var plotData = {{ plot_data|safe }};
+                                        var chartDiv = document.getElementById('plotly-chart');
+                                        
+                                        if (!chartDiv) {
+                                            console.error('Chart div not found');
+                                            return;
+                                        }
+                                        
+                                        if (typeof Plotly === 'undefined') {
+                                            console.error('Plotly library not loaded');
+                                            chartDiv.innerHTML = '<p style="color: red; padding: 20px;">Error: Plotly library failed to load. Please refresh the page.</p>';
+                                            return;
+                                        }
+                                        
+                                        if (plotData && plotData.data && plotData.layout) {
+                                            Plotly.newPlot('plotly-chart', plotData.data, plotData.layout, {
+                                                responsive: true,
+                                                displayModeBar: true
+                                            });
+                                        } else {
+                                            console.error('Invalid Plotly data structure:', plotData);
+                                            chartDiv.innerHTML = '<p style="color: red; padding: 20px;">Error: Invalid plot data structure.</p>';
+                                        }
+                                    } catch (e) {
+                                        console.error('Error rendering Plotly chart:', e);
+                                        var chartDiv = document.getElementById('plotly-chart');
+                                        if (chartDiv) {
+                                            chartDiv.innerHTML = '<p style="color: red; padding: 20px;">Error rendering chart: ' + e.message + '</p>';
+                                        }
+                                    }
+                                }
+                                
+                                // Wait for DOM and Plotly to be ready
+                                if (document.readyState === 'loading') {
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        setTimeout(renderPlotlyChart, 100);
+                                    });
+                                } else {
+                                    setTimeout(renderPlotlyChart, 100);
+                                }
+                            </script>
+                            {% else %}
+                            <!-- Static Image (Matplotlib/Seaborn) - Base64 encoded PNG -->
+                            <div style="width: 100%; text-align: center;">
+                                <img src="data:image/png;base64,{{ plot_data }}" alt="{{ viz_name }}" class="plot-image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                            </div>
+                            {% endif %}
+                        {% else %}
+                        <!-- Static Image (Matplotlib/Seaborn) - Fallback -->
+                        <img src="data:image/png;base64,{{ plot_data }}" alt="{{ viz_name }}" class="plot-image" style="max-width: 100%; height: auto;">
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="navigation-section">
+                {% if domain == 'E-Commerce' %}
+                <a href="/ecommerce" class="btn btn-secondary">← Back to {{ domain }}</a>
+                {% elif domain == 'Health' %}
+                <a href="/health" class="btn btn-secondary">← Back to {{ domain }}</a>
+                {% elif domain == 'Education' %}
+                <a href="/education" class="btn btn-secondary">← Back to {{ domain }}</a>
+                {% elif domain == 'Finance' %}
+                <a href="/finance" class="btn btn-secondary">← Back to {{ domain }}</a>
+                {% elif domain == 'Interactive 3D Dataset' %}
+                <a href="/interactive-3d" class="btn btn-secondary">← Back to {{ domain }}</a>
+                {% elif domain == 'Student Study Success' %}
+                <a href="/student-study" class="btn btn-secondary">← Back to {{ domain }}</a>
+                {% elif domain == 'Home Loan Applicants' %}
+                <a href="/home-loans" class="btn btn-secondary">← Back to {{ domain }}</a>
+                {% elif domain == 'E-Commerce Sales' %}
+                <a href="/ecommerce-csv" class="btn btn-secondary">← Back to {{ domain }}</a>
+                {% elif domain == 'Health Clinic Data' %}
+                <a href="/health-clinic" class="btn btn-secondary">← Back to {{ domain }}</a>
+                {% else %}
+                <a href="/" class="btn btn-secondary">← Back</a>
+                {% endif %}
+                <a href="/" class="btn btn-primary">Home</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Visualization Learning Platform</p>
+        </footer>
+    </div>
+</script>
+</body>
+</html>
+

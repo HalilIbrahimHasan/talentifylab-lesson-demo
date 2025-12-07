@@ -1,0 +1,51 @@
+order_id,order_date,category,price,quantity,customer_segment,traffic_source,country,device
+2000,2024-01-20,Home,286.83,4,Prime,Social Ads,USA,Desktop
+2001,2024-01-08,Electronics,231.4,5,Prime,Referral,UK,Tablet
+2002,2024-01-20,Home,246.85,1,Prime,Organic Search,Germany,Mobile
+2003,2024-01-27,Fashion,325.21,5,Prime,Organic Search,USA,Desktop
+2004,2024-01-07,Books,27.5,1,Regular,Organic Search,UK,Desktop
+2005,2024-01-03,Beauty,271.96,4,Prime,Direct,France,Desktop
+2006,2024-01-20,Books,273.43,1,Regular,Email,Australia,Tablet
+2007,2024-01-07,Sports,22.42,3,Regular,Social Ads,UK,Mobile
+2008,2024-01-28,Home,379.63,2,Prime,Email,Canada,Mobile
+2009,2024-01-17,Electronics,86.54,4,Regular,Referral,Australia,Desktop
+2010,2024-01-10,Beauty,157.58,5,Prime,Direct,USA,Tablet
+2011,2024-01-22,Books,143.09,3,Regular,Referral,UK,Tablet
+2012,2024-01-16,Home,362.55,4,Regular,Organic Search,UK,Tablet
+2013,2024-01-06,Fashion,401.88,1,Prime,Referral,USA,Desktop
+2014,2024-01-13,Sports,300.23,3,Regular,Organic Search,USA,Mobile
+2015,2024-01-28,Electronics,39.49,5,Regular,Organic Search,Canada,Desktop
+2016,2024-01-03,Books,100.94,3,Prime,Organic Search,USA,Tablet
+2017,2024-01-12,Beauty,92.64,3,Regular,Social Ads,Canada,Tablet
+2018,2024-01-13,Sports,334.35,4,Prime,Referral,Canada,Mobile
+2019,2024-01-01,Books,405.38,4,Regular,Organic Search,Germany,Mobile
+2020,2024-01-25,Beauty,122.53,1,Prime,Email,Australia,Desktop
+2021,2024-01-13,Books,375.62,1,Regular,Referral,Australia,Tablet
+2022,2024-01-25,Toys,44.4,1,Regular,Referral,UK,Mobile
+2023,2024-01-04,Fashion,435.86,1,Prime,Email,USA,Desktop
+2024,2024-01-10,Home,493.73,2,Prime,Referral,Australia,Mobile
+2025,2024-01-03,Sports,372.75,4,Regular,Email,UK,Desktop
+2026,2024-01-20,Books,119.07,1,Prime,Direct,USA,Desktop
+2027,2024-01-23,Beauty,401.63,3,Prime,Referral,Canada,Desktop
+2028,2024-01-17,Beauty,386.99,4,Regular,Social Ads,UK,Desktop
+2029,2024-01-06,Fashion,377.26,2,Regular,Organic Search,UK,Tablet
+2030,2024-01-20,Electronics,85.01,1,Regular,Direct,UK,Desktop
+2031,2024-01-21,Toys,119.8,5,Prime,Referral,Germany,Desktop
+2032,2024-01-06,Sports,172.01,4,Prime,Direct,UK,Mobile
+2033,2024-01-06,Beauty,488.58,5,Prime,Organic Search,Canada,Tablet
+2034,2024-01-17,Fashion,374.68,1,Prime,Social Ads,UK,Tablet
+2035,2024-01-28,Fashion,404.86,3,Prime,Email,Australia,Tablet
+2036,2024-01-10,Fashion,194.67,3,Prime,Organic Search,Australia,Tablet
+2037,2024-01-24,Sports,471.91,2,Regular,Email,Germany,Desktop
+2038,2024-01-07,Home,239.83,4,Prime,Email,Australia,Tablet
+2039,2024-01-08,Fashion,316.24,5,Prime,Direct,France,Tablet
+2040,2024-01-09,Electronics,211.36,4,Regular,Email,UK,Desktop
+2041,2024-01-13,Toys,465.35,2,Regular,Social Ads,Germany,Tablet
+2042,2024-01-05,Electronics,299.55,5,Prime,Email,Australia,Desktop
+2043,2024-01-16,Toys,372.7,4,Prime,Email,France,Tablet
+2044,2024-01-24,Electronics,152.56,3,Prime,Organic Search,Germany,Mobile
+2045,2024-01-24,Toys,114.5,4,Prime,Social Ads,Canada,Tablet
+2046,2024-01-08,Toys,117.55,3,Prime,Organic Search,Canada,Mobile
+2047,2024-01-16,Beauty,418.01,2,Regular,Organic Search,Canada,Desktop
+2048,2024-01-23,Fashion,308.88,1,Regular,Organic Search,Canada,Desktop
+2049,2024-01-07,Books,374.58,1,Regular,Direct,UK,Mobile

@@ -1,0 +1,11 @@
+person_name,income,dti_ratio,credit_score,interest_rate
+Alice,85000,0.28,740,4.2
+Bob,72000,0.32,690,5.1
+Carlos,91000,0.24,780,3.8
+Diana,65000,0.36,660,5.4
+Ethan,120000,0.2,810,3.5
+Fiona,54000,0.4,640,5.8
+George,78000,0.3,700,4.9
+Hannah,102000,0.22,770,3.7
+Ivan,68000,0.34,680,5.2
+Julia,95000,0.25,800,3.6

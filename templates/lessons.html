@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization Library Lessons</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/" class="nav-link">← Back to Home</a>
+            </nav>
+            <h1>📚 Visualization Library Lessons</h1>
+            <p class="subtitle">Learn about different data visualization libraries</p>
+        </header>
+
+        <main>
+            <div class="info-section">
+                <h2>About These Lessons</h2>
+                <p>Each lesson page provides comprehensive information about a specific data visualization library, including its features, use cases, and examples from our domain datasets.</p>
+            </div>
+
+            <div class="lessons-grid">
+                <div class="lesson-card" onclick="window.location.href='/lesson/matplotlib'">
+                    <div class="lesson-icon">📈</div>
+                    <h2>Matplotlib</h2>
+                    <p>Python's foundational plotting library for creating static, publication-quality visualizations</p>
+                    <ul class="lesson-features">
+                        <li>Static plots</li>
+                        <li>High customization</li>
+                        <li>Publication quality</li>
+                    </ul>
+                    <div class="lesson-arrow">Learn More →</div>
+                </div>
+
+                <div class="lesson-card" onclick="window.location.href='/lesson/seaborn'">
+                    <div class="lesson-icon">🎨</div>
+                    <h2>Seaborn</h2>
+                    <p>Statistical data visualization built on matplotlib with beautiful default styles</p>
+                    <ul class="lesson-features">
+                        <li>Statistical plots</li>
+                        <li>Beautiful defaults</li>
+                        <li>Easy to use</li>
+                    </ul>
+                    <div class="lesson-arrow">Learn More →</div>
+                </div>
+
+                <div class="lesson-card" onclick="window.location.href='/lesson/bokeh'">
+                    <div class="lesson-icon">🌐</div>
+                    <h2>Bokeh</h2>
+                    <p>Interactive visualization library for modern web browsers</p>
+                    <ul class="lesson-features">
+                        <li>Interactive plots</li>
+                        <li>Web-based</li>
+                        <li>Real-time data</li>
+                    </ul>
+                    <div class="lesson-arrow">Learn More →</div>
+                </div>
+
+                <div class="lesson-card" onclick="window.location.href='/lesson/plotly'">
+                    <div class="lesson-icon">✨</div>
+                    <h2>Plotly</h2>
+                    <p>Interactive, publication-quality graphs for web and Python</p>
+                    <ul class="lesson-features">
+                        <li>Interactive dashboards</li>
+                        <li>3D visualizations</li>
+                        <li>Export options</li>
+                    </ul>
+                    <div class="lesson-arrow">Learn More →</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Visualization Learning Platform</p>
+        </footer>
+    </div>
+</body>
+</html>
+

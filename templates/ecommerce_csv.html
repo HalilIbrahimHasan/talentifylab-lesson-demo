@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Sales Analysis - Data Visualizations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/" class="nav-link">← Back to Home</a>
+            </nav>
+            <h1>🛒 E-Commerce Sales Analysis</h1>
+            <p class="subtitle">Comprehensive e-commerce data visualization with 50 sales records</p>
+        </header>
+
+        <main>
+            <div class="domain-info">
+                <h2>About This Dataset</h2>
+                <p>This dataset contains 50 e-commerce sales records with detailed information about orders, including dates, categories, prices, quantities, customer segments, traffic sources, countries, and devices. This comprehensive dataset allows for multiple types of analysis.</p>
+                <p><strong>Dataset:</strong> ecommerce_50_records.csv</p>
+                <p><strong>Variables:</strong></p>
+                <ul>
+                    <li><strong>order_date</strong>: Date of the order (time series data)</li>
+                    <li><strong>category</strong>: Product category (categorical)</li>
+                    <li><strong>price</strong>: Product price (continuous)</li>
+                    <li><strong>quantity</strong>: Quantity purchased (continuous)</li>
+                    <li><strong>customer_segment</strong>: Prime or Regular (categorical)</li>
+                    <li><strong>traffic_source</strong>: Marketing channel (categorical)</li>
+                    <li><strong>country</strong>: Customer country (categorical)</li>
+                    <li><strong>device</strong>: Device type (Mobile, Desktop, Tablet)</li>
+                    <li><strong>revenue</strong>: Calculated as price × quantity</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h2>Available Visualizations</h2>
+                <p>Click on any visualization below to view it with detailed lesson descriptions explaining the technology used and why each visualization type is essential for e-commerce analysis.</p>
+            </div>
+
+            <div class="visualizations-grid">
+                {% for dataset in datasets %}
+                <div class="viz-card" onclick="window.location.href='/ecommerce-csv/{{ dataset.type }}'">
+                    <div class="viz-header">
+                        <span class="library-badge">{{ dataset.library }}</span>
+                        <h3>{{ dataset.name }}</h3>
+                    </div>
+                    <p class="viz-type">{{ dataset.type|title }} Plot</p>
+                    <div class="viz-arrow">→</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="lesson-section">
+                <h2>📊 Available Visualizations and Technologies</h2>
+                <div class="lesson-content">
+                    <div class="lesson-box">
+                        <h3>🔵 1. Sales Trend Analysis (Line Plot)</h3>
+                        <p><strong>Purpose:</strong> Shows daily total sales over time</p>
+                        <p><strong>Use Cases:</strong> Revenue change over time, seasonal trend detection</p>
+                        <p><strong>Technology:</strong> Matplotlib (plot) or Seaborn (lineplot)</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🟢 2. Category Sales Comparison (Bar Plot)</h3>
+                        <p><strong>Purpose:</strong> Compare total revenue across categories</p>
+                        <p><strong>Use Cases:</strong> Find best-selling categories, identify high-profit product classes</p>
+                        <p><strong>Technology:</strong> Seaborn (barplot) or Matplotlib (bar)</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🟣 3. Cart Value Distribution (Histogram + KDE)</h3>
+                        <p><strong>Purpose:</strong> Understand customer spending behavior</p>
+                        <p><strong>Use Cases:</strong> Average spending detection, outlier purchase identification</p>
+                        <p><strong>Technology:</strong> Seaborn (histplot, kdeplot) - most suitable, or Matplotlib (hist)</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🧡 4. Traffic Source Performance (Countplot)</h3>
+                        <p><strong>Purpose:</strong> Identify which marketing channels bring most sales</p>
+                        <p><strong>Use Cases:</strong> Marketing budget optimization</p>
+                        <p><strong>Technology:</strong> Seaborn (countplot) or Matplotlib (bar)</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🔥 5. Country-Device Heatmap</h3>
+                        <p><strong>Purpose:</strong> Show sales density across country-device combinations</p>
+                        <p><strong>Use Cases:</strong> Identify if mobile is dominant in USA, desktop higher in Europe</p>
+                        <p><strong>Technology:</strong> Seaborn (heatmap) and Pandas (pivot_table)</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🧩 6. Price-Quantity Scatter Plot</h3>
+                        <p><strong>Purpose:</strong> Analyze relationships between price and quantity</p>
+                        <p><strong>Use Cases:</strong> Do cheaper products sell more? Fashion price elasticity?</p>
+                        <p><strong>Technology:</strong> Seaborn (scatterplot) or Matplotlib (scatter)</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>📚 7. Multi-Variable Pairplot</h3>
+                        <p><strong>Purpose:</strong> Analyze multiple variables simultaneously</p>
+                        <p><strong>Use Cases:</strong> Comprehensive relationship analysis</p>
+                        <p><strong>Technology:</strong> Seaborn (pairplot) - unique to Seaborn, not in Matplotlib!</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🛍 8. Device Sales Distribution (Pie/Bar Chart)</h3>
+                        <p><strong>Purpose:</strong> Show proportion of sales by device type</p>
+                        <p><strong>Use Cases:</strong> Does mobile or desktop bring more sales?</p>
+                        <p><strong>Technology:</strong> Matplotlib (pie, bar) or Seaborn (barplot)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section" style="margin-top: 30px;">
+                <h2>📋 Summary: Visualization Types and Tools</h2>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                    <thead>
+                        <tr style="background: #667eea; color: white;">
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Graph Type</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Purpose</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Tool</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Line Plot</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Time trend</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Matplotlib, Seaborn</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Bar Plot</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Category comparison</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Seaborn</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Countplot</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Frequency</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Seaborn</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Histogram / KDE</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Distribution</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Seaborn</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Scatter</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Relationship analysis</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Seaborn</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Heatmap</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Correlation / density</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Seaborn</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Pie Chart</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Proportion display</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Matplotlib</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Pairplot</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Multi-variable analysis</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Seaborn (unique!)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Visualization Learning Platform</p>
+        </footer>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Loan Applicants - Data Visualizations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/" class="nav-link">← Back to Home</a>
+            </nav>
+            <h1>🏠 Home Loan Applicants Analysis</h1>
+            <p class="subtitle">Real-world mortgage underwriting analysis like Bank of America / Freddie Mac</p>
+        </header>
+
+        <main>
+            <div class="domain-info">
+                <h2>About This Dataset</h2>
+                <p>This dataset contains information about home loan applicants, including their income, debt-to-income (DTI) ratio, credit score, and interest rate. This is the type of data that real mortgage analysts at Bank of America and Freddie Mac work with daily.</p>
+                <p><strong>Dataset:</strong> home_loan_applicants.csv</p>
+                <p><strong>Variables:</strong></p>
+                <ul>
+                    <li><strong>income</strong>: Annual income in dollars (continuous variable)</li>
+                    <li><strong>dti_ratio</strong>: Debt-to-Income ratio (continuous variable, 0-1 scale)</li>
+                    <li><strong>credit_score</strong>: Credit score (continuous variable, typically 300-850)</li>
+                    <li><strong>interest_rate</strong>: Mortgage interest rate percentage (continuous variable)</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h2>Available Visualizations</h2>
+                <p>Click on any visualization below to view it with detailed lesson descriptions explaining the technology used and why each visualization type is essential for mortgage underwriting analysis.</p>
+            </div>
+
+            <div class="visualizations-grid">
+                {% for dataset in datasets %}
+                <div class="viz-card" onclick="window.location.href='/home-loans/{{ dataset.type }}'">
+                    <div class="viz-header">
+                        <span class="library-badge">{{ dataset.library }}</span>
+                        <h3>{{ dataset.name }}</h3>
+                    </div>
+                    <p class="viz-type">{{ dataset.type|title }} Plot</p>
+                    <div class="viz-arrow">→</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="lesson-section">
+                <h2>📊 Which Visualizations Work Best for Mortgage Data?</h2>
+                <div class="lesson-content">
+                    <div class="lesson-box">
+                        <h3>🔵 1. Scatter Plot (Most Ideal)</h3>
+                        <p><strong>Technology:</strong> Seaborn (scatterplot)</p>
+                        <p>Perfect for understanding relationships between income-DTI and credit_score-interest_rate. Answers critical questions: "Does interest rate decrease as credit score increases?" and "Does DTI decrease as income increases?"</p>
+                        <p><strong>Why Seaborn?</strong> Seaborn provides beautiful default styling and easy customization for scatter plots, making relationship analysis clear and professional.</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🟢 2. Regression Plot</h3>
+                        <p><strong>Technology:</strong> Seaborn (regplot)</p>
+                        <p>Scatter plot with automatic trend line - super useful in mortgage analysis. Shows credit_score vs interest_rate and income vs dti_ratio relationships with confidence intervals.</p>
+                        <p><strong>Why Seaborn regplot?</strong> Automatically calculates and displays regression lines with confidence intervals, making correlation analysis effortless.</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🟣 3. Histogram + KDE</h3>
+                        <p><strong>Technology:</strong> Seaborn (histplot, kdeplot)</p>
+                        <p>Shows distributions of interest rates, DTI ratios, and income. One of the most commonly used visualizations in mortgage underwriting for understanding data distributions.</p>
+                        <p><strong>Why Seaborn?</strong> Seaborn's histplot with KDE provides smooth distribution estimates, making it easy to identify normal ranges, outliers, and distribution patterns.</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🟡 4. Box Plot</h3>
+                        <p><strong>Technology:</strong> Seaborn (boxplot)</p>
+                        <p>Ideal for comparing interest rates across credit score categories and DTI ratios across income groups. Shows quartiles, medians, and outliers.</p>
+                        <p><strong>Why Seaborn?</strong> Seaborn's boxplot makes it easy to compare distributions across groups with beautiful default styling and automatic grouping.</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🔥 5. Heatmap (Most Critical)</h3>
+                        <p><strong>Technology:</strong> Seaborn (heatmap)</p>
+                        <p>The most critical visualization in mortgage underwriting! Shows correlations between income, DTI ratio, credit score, and interest rate all at once.</p>
+                        <p><strong>Why Seaborn?</strong> Seaborn's heatmap with correlation matrices makes it easy to visualize relationships between all variables simultaneously, which is essential for risk assessment.</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🧩 6. Bar Chart</h3>
+                        <p><strong>Technology:</strong> Seaborn (barplot)</p>
+                        <p>Shows average interest rates by credit score ranges. Useful for comparing averages across categories and understanding pricing strategies.</p>
+                        <p><strong>Why Seaborn?</strong> Seaborn's barplot provides statistical aggregation and error bars, making it perfect for comparing averages across groups.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Visualization Learning Platform</p>
+        </footer>
+    </div>
+</body>
+</html>
+

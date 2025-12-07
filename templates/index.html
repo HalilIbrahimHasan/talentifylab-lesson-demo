@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Learning Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Data Visualization Learning Platform</h1>
+            <p class="subtitle">Learn data visualization techniques across different domains</p>
+        </header>
+
+        <main>
+            <div class="domains-grid">
+                <div class="domain-card" onclick="window.location.href='/ecommerce'">
+                    <div class="domain-icon">🛒</div>
+                    <h2>E-Commerce</h2>
+                    <p>Amazon-style sales data analysis</p>
+                    <ul class="features">
+                        <li>Sales trends</li>
+                        <li>Category comparisons</li>
+                        <li>Customer behavior</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card" onclick="window.location.href='/health'">
+                    <div class="domain-icon">🧬</div>
+                    <h2>Health</h2>
+                    <p>Labcorp/BCBS-style patient data</p>
+                    <ul class="features">
+                        <li>Patient metrics</li>
+                        <li>Diagnosis analysis</li>
+                        <li>Health correlations</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card" onclick="window.location.href='/education'">
+                    <div class="domain-icon">📚</div>
+                    <h2>Education</h2>
+                    <p>School exam scores & performance</p>
+                    <ul class="features">
+                        <li>Student performance</li>
+                        <li>Subject comparisons</li>
+                        <li>Program effectiveness</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card" onclick="window.location.href='/finance'">
+                    <div class="domain-icon">💰</div>
+                    <h2>Finance</h2>
+                    <p>Mortgage loan analysis</p>
+                    <ul class="features">
+                        <li>Risk analysis</li>
+                        <li>Interest rates</li>
+                        <li>Loan performance</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card" onclick="window.location.href='/student-study'">
+                    <div class="domain-icon">📊</div>
+                    <h2>Student Study Success</h2>
+                    <p>Study hours vs success analysis</p>
+                    <ul class="features">
+                        <li>Scatter plots</li>
+                        <li>Regression analysis</li>
+                        <li>Correlation study</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card" onclick="window.location.href='/home-loans'">
+                    <div class="domain-icon">🏠</div>
+                    <h2>Home Loan Applicants</h2>
+                    <p>Mortgage underwriting analysis</p>
+                    <ul class="features">
+                        <li>Risk assessment</li>
+                        <li>Correlation analysis</li>
+                        <li>Distribution studies</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card" onclick="window.location.href='/ecommerce-csv'">
+                    <div class="domain-icon">🛍️</div>
+                    <h2>E-Commerce Sales (50 Records)</h2>
+                    <p>Comprehensive sales analysis</p>
+                    <ul class="features">
+                        <li>8 visualization types</li>
+                        <li>Multi-variable analysis</li>
+                        <li>Trend detection</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card" onclick="window.location.href='/health-clinic'">
+                    <div class="domain-icon">🏥</div>
+                    <h2>Health Clinic Data</h2>
+                    <p>Healthcare analytics</p>
+                    <ul class="features">
+                        <li>Distribution analysis</li>
+                        <li>Diagnosis comparison</li>
+                        <li>Correlation studies</li>
+                    </ul>
+                </div>
+
+                <div class="domain-card" onclick="window.location.href='/interactive-3d'">
+                    <div class="domain-icon">🎥</div>
+                    <h2>Interactive 3D Dataset</h2>
+                    <p>3D visualization analysis</p>
+                    <ul class="features">
+                        <li>Static 3D plots</li>
+                        <li>Interactive 3D</li>
+                        <li>Multi-perspective views</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>About This Platform</h2>
+                <p>This interactive learning platform demonstrates various data visualization techniques using real-world datasets from four different domains. Each visualization includes detailed lesson descriptions explaining:</p>
+                <ul>
+                    <li><strong>What</strong> the visualization shows</li>
+                    <li><strong>Why</strong> it's useful in that domain</li>
+                    <li><strong>How</strong> to interpret the results</li>
+                    <li><strong>When</strong> to use each visualization type</li>
+                </ul>
+                <p>Explore each domain to learn about different visualization libraries including Matplotlib, Seaborn, Bokeh, and Plotly.</p>
+                <div style="margin-top: 20px; text-align: center; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="/lessons" class="btn btn-primary" style="display: inline-block;">📚 Learn About Visualization Libraries</a>
+                    <a href="/visualization-guide" class="btn btn-secondary" style="display: inline-block;">📖 View Visualization Guide</a>
+                    <a href="/tools-metrics" class="btn btn-secondary" style="display: inline-block;">⭐ Tools Metrics Matrix</a>
+                    <a href="/capability-metrics" class="btn btn-secondary" style="display: inline-block;">📊 Capability Metrics</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Visualization Learning Platform</p>
+        </footer>
+    </div>
+</body>
+</html>
+

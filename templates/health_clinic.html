@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Clinic Data - Data Visualizations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/" class="nav-link">← Back to Home</a>
+            </nav>
+            <h1>🏥 Health Clinic Data Analysis</h1>
+            <p class="subtitle">Comprehensive healthcare data visualization and analysis</p>
+        </header>
+
+        <main>
+            <div class="domain-info">
+                <h2>About This Dataset</h2>
+                <p>This dataset contains patient health records from multiple clinics (Labcorp East, Labcorp West, BCBS Clinic) with comprehensive health metrics including age, BMI, blood pressure, diagnoses, treatments, lab results, and outcome scores.</p>
+                <p><strong>Dataset:</strong> health_data_clinic.csv</p>
+                <p><strong>Variables:</strong></p>
+                <ul>
+                    <li><strong>age</strong>: Patient age (continuous variable)</li>
+                    <li><strong>gender</strong>: Patient gender (categorical)</li>
+                    <li><strong>bmi</strong>: Body Mass Index (continuous variable)</li>
+                    <li><strong>systolic_bp</strong>: Systolic blood pressure (continuous variable)</li>
+                    <li><strong>diastolic_bp</strong>: Diastolic blood pressure (continuous variable)</li>
+                    <li><strong>diagnosis</strong>: Medical diagnosis (categorical: Healthy, Pre-Diabetes, Type 2 Diabetes, Hypertension)</li>
+                    <li><strong>treatment</strong>: Treatment prescribed (categorical)</li>
+                    <li><strong>lab_a1c</strong>: A1C lab test result (continuous variable)</li>
+                    <li><strong>hospital</strong>: Hospital/clinic name (categorical)</li>
+                    <li><strong>outcome_score</strong>: Treatment outcome score (continuous variable, 0-100)</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h2>Available Visualizations</h2>
+                <p>Click on any visualization below to view it with detailed lesson descriptions explaining the technology used and why each visualization type is essential for healthcare data analysis.</p>
+            </div>
+
+            <div class="visualizations-grid">
+                {% for dataset in datasets %}
+                <div class="viz-card" onclick="window.location.href='/health-clinic/{{ dataset.type }}'">
+                    <div class="viz-header">
+                        <span class="library-badge">{{ dataset.library }}</span>
+                        <h3>{{ dataset.name }}</h3>
+                    </div>
+                    <p class="viz-type">{{ dataset.type|title }} Plot</p>
+                    <div class="viz-arrow">→</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="lesson-section">
+                <h2>📊 Available Visualizations and Technologies</h2>
+                <div class="lesson-content">
+                    <div class="lesson-box">
+                        <h3>1️⃣ Age / BMI / Blood Pressure Distribution</h3>
+                        <p><strong>Visualization:</strong> Histogram + KDE</p>
+                        <p><strong>Metrics:</strong> age, bmi, systolic_bp</p>
+                        <p><strong>Technology:</strong> Seaborn (histplot, kdeplot)</p>
+                        <p><strong>Why:</strong> Best for statistical distribution analysis - shows normal ranges, outliers, and distribution patterns</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>2️⃣ Diagnosis-Based BMI or A1C Comparison</h3>
+                        <p><strong>Visualization:</strong> Boxplot / Violin Plot</p>
+                        <p><strong>Metrics:</strong> diagnosis vs bmi, diagnosis vs lab_a1c</p>
+                        <p><strong>Technology:</strong> Seaborn (boxplot, violinplot)</p>
+                        <p><strong>Why:</strong> Visually clear, outliers are obvious - shows quartiles, medians, and full distribution shapes</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>3️⃣ BMI vs Blood Pressure Relationship</h3>
+                        <p><strong>Visualization:</strong> Scatter Plot + Regression Line</p>
+                        <p><strong>Metrics:</strong> X: bmi, Y: systolic_bp, hue: diagnosis</p>
+                        <p><strong>Technology:</strong> Seaborn (scatterplot, regplot) or optionally Plotly for interactive (hover: patient_id)</p>
+                        <p><strong>Why:</strong> Identifies correlations and risk factors between health metrics</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>4️⃣ Correlation Analysis</h3>
+                        <p><strong>Visualization:</strong> Correlation Heatmap</p>
+                        <p><strong>Metrics:</strong> age, BMI, BP, A1C, outcome</p>
+                        <p><strong>Technology:</strong> Seaborn (heatmap)</p>
+                        <p><strong>Why:</strong> Static but perfect for analysis - shows all variable relationships simultaneously</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>5️⃣ Hospital-Based Treatment Success</h3>
+                        <p><strong>Visualization:</strong> Bar Plot</p>
+                        <p><strong>Metrics:</strong> hospital vs average outcome_score</p>
+                        <p><strong>Technology:</strong> Seaborn (barplot) or optionally Dash/Plotly for interactive dashboard</p>
+                        <p><strong>Why:</strong> Compares performance across hospitals - can be made interactive for real-time monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Visualization Learning Platform</p>
+        </footer>
+    </div>
+</body>
+</html>
+

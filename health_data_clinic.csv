@@ -1,0 +1,16 @@
+patient_id,age,gender,bmi,systolic_bp,diastolic_bp,diagnosis,treatment,lab_a1c,hospital,outcome_score
+P001,45,F,27.5,130,82,Type 2 Diabetes,Metformin,7.8,Labcorp East,78
+P002,60,M,31.2,145,90,Hypertension,ACE Inhibitor,5.5,Labcorp West,70
+P003,35,F,22.0,118,75,Healthy,Lifestyle,5.0,BCBS Clinic,90
+P004,52,M,29.8,150,92,Type 2 Diabetes,Insulin,8.2,BCBS Clinic,72
+P005,28,F,24.4,110,70,Healthy,Lifestyle,4.9,Labcorp East,95
+P006,67,M,33.0,160,98,Hypertension,Beta Blocker,6.1,Labcorp West,68
+P007,50,F,30.5,140,88,Pre-Diabetes,Metformin,6.4,BCBS Clinic,80
+P008,39,M,26.1,125,80,Healthy,Lifestyle,5.2,Labcorp East,88
+P009,55,F,32.0,155,94,Type 2 Diabetes,Insulin,8.5,Labcorp West,69
+P010,42,M,28.3,135,86,Hypertension,ACE Inhibitor,6.0,BCBS Clinic,75
+P011,30,F,23.5,112,72,Healthy,Lifestyle,4.8,Labcorp East,96
+P012,63,M,34.2,162,100,Type 2 Diabetes,Insulin,9.0,Labcorp West,65
+P013,47,F,29.0,138,84,Pre-Diabetes,Metformin,6.8,BCBS Clinic,77
+P014,38,M,25.0,120,78,Healthy,Lifestyle,5.1,Labcorp East,89
+P015,58,F,31.8,148,92,Hypertension,Beta Blocker,6.3,Labcorp West,73

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ library_name }} - Lesson</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/" class="nav-link">Home</a>
+                <span class="nav-separator">/</span>
+                <span class="nav-current">{{ library_name }} Lesson</span>
+            </nav>
+            <h1>{{ library_name }} - Data Visualization Library</h1>
+            <div class="viz-meta">
+                <span class="meta-badge library-badge">{{ library_name }}</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="lesson-section">
+                <h2>📚 About {{ library_name }}</h2>
+                <div class="lesson-content">
+                    <div class="lesson-box full-width">
+                        <h3>What is {{ library_name }}?</h3>
+                        <p>{{ overview }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2>🎯 Key Features</h2>
+                <div class="features-grid">
+                    {% for feature in features %}
+                    <div class="feature-card">
+                        <h4>{{ feature.title }}</h4>
+                        <p>{{ feature.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2>💡 When to Use {{ library_name }}</h2>
+                <div class="lesson-content">
+                    <div class="lesson-box">
+                        <h3>Best For:</h3>
+                        <ul>
+                            {% for use_case in best_for %}
+                            <li>{{ use_case }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>Use Cases in Our Domains:</h3>
+                        <ul>
+                            {% for domain_use in domain_uses %}
+                            <li>{{ domain_use }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2>📊 Example Visualizations</h2>
+                <div class="examples-grid">
+                    {% for example in examples %}
+                    <div class="example-card">
+                        <h4>{{ example.name }}</h4>
+                        <p class="example-domain">{{ example.domain }}</p>
+                        <p>{{ example.description }}</p>
+                        <a href="{{ example.link }}" class="btn btn-small">View Example →</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2>🔧 Basic Syntax</h2>
+                <div class="code-example">
+                    <pre><code>{{ code_example }}</code></pre>
+                </div>
+            </div>
+
+            <div class="navigation-section">
+                <a href="/" class="btn btn-primary">← Back to Home</a>
+                <a href="/lessons" class="btn btn-secondary">All Lessons</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Visualization Learning Platform</p>
+        </footer>
+    </div>
+</body>
+</html>
+

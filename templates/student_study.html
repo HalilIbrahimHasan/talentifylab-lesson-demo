@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Study Success - Data Visualizations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/" class="nav-link">← Back to Home</a>
+            </nav>
+            <h1>📚 Student Study Success Analysis</h1>
+            <p class="subtitle">Exploring the relationship between study hours and academic success</p>
+        </header>
+
+        <main>
+            <div class="domain-info">
+                <h2>About This Dataset</h2>
+                <p>This dataset contains information about students' study hours and their corresponding success scores. The data helps us understand the correlation between time spent studying and academic performance.</p>
+                <p><strong>Dataset:</strong> student_study_success.csv</p>
+                <p><strong>Variables:</strong></p>
+                <ul>
+                    <li><strong>study_hours</strong>: Number of hours spent studying (continuous variable)</li>
+                    <li><strong>success_score</strong>: Academic success score (continuous variable)</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h2>Available Visualizations</h2>
+                <p>Click on any visualization below to view it with detailed lesson descriptions explaining the technology used and why each visualization type is appropriate for this data.</p>
+            </div>
+
+            <div class="visualizations-grid">
+                {% for dataset in datasets %}
+                <div class="viz-card" onclick="window.location.href='/student-study/{{ dataset.type }}'">
+                    <div class="viz-header">
+                        <span class="library-badge">{{ dataset.library }}</span>
+                        <h3>{{ dataset.name }}</h3>
+                    </div>
+                    <p class="viz-type">{{ dataset.type|title }} Plot</p>
+                    <div class="viz-arrow">→</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="lesson-section">
+                <h2>📊 Which Visualizations Work Best for This Data?</h2>
+                <div class="lesson-content">
+                    <div class="lesson-box">
+                        <h3>🔵 1. Scatter Plot (Most Ideal)</h3>
+                        <p><strong>Technology:</strong> Matplotlib with NumPy for trend line calculation</p>
+                        <p>This is the best visualization for answering "Does success increase as study hours increase?" The scatter plot shows individual data points, and the trend line (calculated using NumPy's polyfit) clearly shows the relationship pattern.</p>
+                        <p><strong>Why Matplotlib?</strong> Matplotlib provides precise control over scatter plot styling, annotations, and custom trend line calculations.</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🟢 2. Line Plot</h3>
+                        <p><strong>Technology:</strong> Matplotlib</p>
+                        <p>Ordering students by study hours and connecting them with a line shows the progression of success scores. This helps visualize trends over the ordered sequence.</p>
+                        <p><strong>Why Matplotlib?</strong> Matplotlib's line plot is perfect for sequential data visualization with multiple series on the same axes.</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🟣 3. Regression Plot (Best for Relationships)</h3>
+                        <p><strong>Technology:</strong> Seaborn regplot</p>
+                        <p>Seaborn's regplot automatically calculates and displays the regression line with confidence intervals. This is the most comprehensive visualization for understanding correlations.</p>
+                        <p><strong>Why Seaborn?</strong> Seaborn's regplot is specifically designed for relationship visualization, automatically handling regression calculations and confidence intervals.</p>
+                    </div>
+                    <div class="lesson-box">
+                        <h3>🟡 4. Bar Plot (Alternative View)</h3>
+                        <p><strong>Technology:</strong> Matplotlib with grouped bars</p>
+                        <p>Shows each student's study hours and success score side by side. Great for individual comparisons but not ideal for showing correlations.</p>
+                        <p><strong>Why Matplotlib?</strong> Matplotlib provides excellent control for creating grouped bar plots with custom styling and value labels.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Visualization Learning Platform</p>
+        </footer>
+    </div>
+</body>
+</html>
+

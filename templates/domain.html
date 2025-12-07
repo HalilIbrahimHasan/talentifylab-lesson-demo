@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ domain }} - Data Visualizations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/" class="nav-link">← Back to Home</a>
+            </nav>
+            <h1>{{ domain }} Domain</h1>
+            <p class="subtitle">{{ description }}</p>
+        </header>
+
+        <main>
+            <div class="domain-info">
+                <h2>Available Visualizations</h2>
+                <p>Click on any visualization below to view it with detailed lesson descriptions.</p>
+            </div>
+
+            <div class="visualizations-grid">
+                {% for dataset in datasets %}
+                <div class="viz-card" onclick="window.location.href='/{{ domain_id }}/{{ dataset.type }}'">
+                    <div class="viz-header">
+                        <span class="library-badge">{{ dataset.library }}</span>
+                        <h3>{{ dataset.name }}</h3>
+                    </div>
+                    <p class="viz-type">{{ dataset.type|title }} Plot</p>
+                    <div class="viz-arrow">→</div>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Visualization Learning Platform</p>
+        </footer>
+    </div>
+</body>
+</html>
+
