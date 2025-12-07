@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: data-visualization-platform
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 app.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.13.1
+
